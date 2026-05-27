@@ -1,0 +1,184 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+@import 'katex/dist/katex.min.css';
+
+:root {
+	--bg-main: #eadbc8; /* Chermoula 奶茶色 */
+	--color-cream-gray: #e5e0d4; /* 奶油淺灰 */
+	--color-border-inner: #4a3b2b; /* 深棕內框 */
+	--color-border-outer: #000000; /* 黑色外框 */
+	--color-text-dark: #2d2d2d; /* 深褐色文字 */
+
+	/* 實驗室背景金屬漸層色彩 */
+	--lab-bg-center: #f4eadc;
+	--lab-bg-mid: #d2bd9c;
+	--lab-bg-edge: #9c8365;
+}
+
+/* 32-bit Pixel Art 裝飾元件 */
+.pixel-button-container {
+	position: relative;
+	z-index: 10;
+}
+
+.inner-frame {
+	position: absolute;
+	inset: 2px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	pointer-events: none;
+}
+
+.corner-ornament {
+	position: absolute;
+	width: 2px;
+	height: 2px;
+	background-color: rgba(255, 255, 255, 0.2);
+	pointer-events: none;
+}
+
+.corner-ornament.top-left {
+	top: 4px;
+	left: 4px;
+}
+.corner-ornament.top-right {
+	top: 4px;
+	right: 4px;
+}
+.corner-ornament.bottom-left {
+	bottom: 4px;
+	left: 4px;
+}
+.corner-ornament.bottom-right {
+	bottom: 4px;
+	right: 4px;
+}
+
+.pixel-btn-retro {
+	--color-black: #000000;
+	--color-yellow: #d4a745;
+	box-shadow:
+		0 -2px var(--color-black),
+		0 2px var(--color-black),
+		-2px 0 var(--color-black),
+		2px 0 var(--color-black),
+		0 -4px var(--color-yellow),
+		0 4px var(--color-yellow),
+		-4px 0 var(--color-yellow),
+		4px 0 var(--color-yellow),
+		0 -6px var(--color-black),
+		0 6px var(--color-black),
+		-6px 0 var(--color-black),
+		6px 0 var(--color-black),
+		0 8px 0 0 rgba(0, 0, 0, 0.1) !important;
+	margin: 15px;
+	border: none !important;
+	border-radius: 0px !important;
+}
+
+.pixel-btn-retro:hover {
+	filter: brightness(1.05);
+	transform: translateY(-2px);
+	box-shadow:
+		0 -2px var(--color-black),
+		0 2px var(--color-black),
+		-2px 0 var(--color-black),
+		2px 0 var(--color-black),
+		0 -4px var(--color-yellow),
+		0 4px var(--color-yellow),
+		-4px 0 var(--color-yellow),
+		4px 0 var(--color-yellow),
+		0 -6px var(--color-black),
+		0 6px var(--color-black),
+		-6px 0 var(--color-black),
+		6px 0 var(--color-black),
+		0 10px 0 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+.pixel-btn-retro:active {
+	transform: translateY(4px);
+	box-shadow:
+		0 -2px var(--color-black),
+		0 2px var(--color-black),
+		-2px 0 var(--color-black),
+		2px 0 var(--color-black),
+		0 -4px var(--color-yellow),
+		0 4px var(--color-yellow),
+		-4px 0 var(--color-yellow),
+		4px 0 var(--color-yellow),
+		0 -6px var(--color-black),
+		0 6px var(--color-black),
+		-6px 0 var(--color-black),
+		6px 0 var(--color-black),
+		0 2px 0 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 確保你有定義這些顏色變數 */
+:root {
+	--color-cream-gray: #e5e5e5;
+	--color-text-dark: #333333;
+	--color-border-outer: #000000; /* 黑色 */
+	--color-yellow-middle: #d4a745; /* 黃色 */
+}
+
+button:hover {
+	filter: brightness(1.03);
+	transform: translateY(-1px);
+}
+
+/* 經典 RPG 金框按鈕 (黑外框 + 金內框 + 米色底) */
+.btn-classic-frame {
+	background-color: #e5e0d4 !important; /* 奶油米色 */
+	color: #2d2d2d !important;
+	font-family: 'Courier New', Courier, monospace !important; /* 強制等寬字型 */
+	font-weight: 900 !important;
+	text-transform: uppercase;
+	border: none !important;
+	border-radius: 0px !important;
+	position: relative;
+	padding: 10px 24px !important;
+
+	/* 核心：四層 Box Shadow
+       1. 0 0 0 2px #000 (最外層黑框)
+       2. inset 0 0 0 2px #b8860b (金色內框)
+       3. 0 4px 0 0 rgba(0,0,0,0.15) (底部深色厚度)
+    */
+	box-shadow:
+		0 0 0 2px #000,
+		/* 外黑框 */ inset 0 0 0 2.5px #b8860b,
+		/* 金內框 (Dark Golden Rod) */ 0 6px 0 0 rgba(0, 0, 0, 0.2) !important; /* 底部陰影 */
+
+	transition: all 0.1s ease;
+	margin: 10px;
+}
+
+.btn-classic-frame:hover {
+	filter: brightness(1.05);
+	transform: translateY(-2px);
+	box-shadow:
+		0 0 0 2px #000,
+		inset 0 0 0 2.5px #daa520,
+		/* 懸浮時金邊更亮 (Golden Rod) */ 0 8px 0 0 rgba(0, 0, 0, 0.2) !important;
+}
+
+.btn-classic-frame:active {
+	transform: translateY(4px) !important;
+	box-shadow:
+		0 0 0 2px #000,
+		inset 0 0 0 2.5px #b8860b,
+		0 2px 0 0 rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 側邊欄「查看課文」標籤專用樣式 */
+.rpg-sidebar-btn {
+	background-color: #f5eee6 !important; /* 奶油米色 */
+	color: #333 !important;
+	border: 2px solid #000 !important;
+	border-right: none !important; /* 右側貼邊，不顯示邊框 */
+	border-radius: 12px 0 0 12px !important;
+	box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.rpg-sidebar-btn:hover {
+	background-color: #fff !important;
+}

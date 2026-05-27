@@ -1,0 +1,18 @@
+{
+	"scripts": {
+		"prisma:generate": "prisma generate",
+		"prisma:migrate": "prisma migrate dev",
+		"prisma:studio": "prisma studio",
+		"prisma:pull": "prisma db pull",
+		"prisma:push": "prisma db push"
+	},
+	"dependencies": {
+		"@prisma/client": "^7.7.0",
+		"@supabase/supabase-js": "^2.56.0",
+		"dotenv": "^17.2.4",
+		"postgres": "^3.4.8"
+	},
+	"devDependencies": {
+		"prisma": "^7.7.0"
+	}
+}
